@@ -76,3 +76,18 @@ flowchart LR
 ```
 
 The Phase 13 graph has no executable edge. The adapter boundary defines producer ownership for future projection JSON only; it does not implement refresh, execution, deployment, provider access, credential access, queueing, scheduling, workers, agents, or dashboard mutation.
+
+## Phase 14 Projection Fixture Validation State
+
+Phase 14 adds static fixture validation and timestamp-based stale-projection detection only.
+
+```mermaid
+flowchart LR
+  ProjectionContract["Read-Only Projection Contract"] --> FreshFixture["Fresh Projection Fixture"]
+  ProjectionContract --> StaleFixture["Stale Projection Fixture"]
+  FreshFixture --> FixtureValidator["Read-Only Fixture Validator"]
+  StaleFixture --> FixtureValidator
+  FixtureValidator --> Boundary["No Runtime Mutation"]
+```
+
+The Phase 14 graph has no executable edge. Fixture validation reads committed JSON evidence and validates non-authoritative projection state; it does not refresh projections, write dashboard state, mutate runtime evidence, call providers, deploy, access credentials, queue work, schedule work, start workers, or run background agents.

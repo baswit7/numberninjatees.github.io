@@ -17,6 +17,10 @@ Phase 12 adds dashboard/runtime boundary design only. It separates future read-o
 
 Phase 13 adds the Projection Contract and No-Write Validator Interface layer. It defines read-only dashboard projection schemas, adapter producer ownership, passive dashboard consumption, and structural no-write validation. It does not add dashboard writes, runtime mutation, provider calls, deployment calls, executors, workers, queues, schedulers, agents, browser storage, secrets, or credential handling.
 
+## Studio OS Phase 14
+
+Phase 14 adds read-only projection fixtures and stale-projection detection. It validates fresh and stale projection examples through local JSON inspection only. It does not add execution, provider calls, deployment calls, dashboard writes, runtime mutation, schedulers, workers, queues, credentials, browser storage, or UI command execution.
+
 Run validation locally:
 
 ```powershell
